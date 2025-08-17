@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:whatsapp/core/theming/colors.dart';
 import 'package:whatsapp/core/utils/spacing.dart';
 import 'package:whatsapp/core/widgets/custom_divider.dart';
+import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/widgets/archived_title.dart';
 import 'package:whatsapp/presentation/view/widgets/chat_filters_list.dart';
 import 'package:whatsapp/presentation/view/widgets/chat_item.dart';
@@ -30,10 +32,21 @@ class HomeScreen extends StatelessWidget {
               CustomDivider(),
               verticalSpace(context, 16),
               ChatItem(
-                image: 'https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
-                chatTitle: 'Ali',
-                chatSubtitle: 'How are you today?',
-                time: '05:00',
+                  image:
+                      'https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
+                  chatTitle: 'Ali',
+                  chatSubtitle: 'How are you today?',
+                  time: '05:00',
+                  onTap: () {
+                    context.push(ChatScreen.path);
+                  },
+                ),
+              ChatItem(
+                image: '',
+                chatTitle: 'Sara',
+                chatSubtitle: 'Hi',
+                time: '03:00',
+                onTap: (){},
               ),
             ]))
           ],

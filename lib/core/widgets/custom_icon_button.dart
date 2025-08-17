@@ -7,19 +7,20 @@ class CustomIconButton extends StatelessWidget {
     required this.icon, 
     required this.onPressed, 
     this.backgroundColor, 
-    this.iconColor,
+    this.iconColor, this.iconSize,
   });
 
   final IconData icon;
   final Function() onPressed;
   final Color? backgroundColor;
   final Color? iconColor;
+  final double? iconSize;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: (){}, 
-      icon: Icon(icon, color: iconColor,),
+      icon: Icon(icon, color: iconColor, size: iconSize,),
       style: IconButton.styleFrom(
         backgroundColor: backgroundColor ?? ColorsManager.lightBackgroundShade,
       ),

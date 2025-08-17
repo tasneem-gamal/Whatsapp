@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 class ColorsManager {
   // ====== Common (used in both modes) ======
-  static const Color primaryGreen = Color(0xff075E54);
+  static const Color primaryGreen = Color(0xffdcf8c6);
   static const Color tealGreen = Color(0xff128C7E);
   static const Color actionGreen = Color(0xff25D366);
   static const Color divider = Color(0xffd1d1d1);
 
   // ====== Light Mode ======
   static const Color lightBackground = Colors.white;
+  static const Color lightChatAppBar = Color(0xffdddcd8);
   static const Color lightBackgroundShade = Color(0xFFf6f5f3);
   static const Color lightChatBubbleSent = Color(0xffDCF8C6);
   static const Color lightChatBubbleReceived = Color(0xffFFFFFF);

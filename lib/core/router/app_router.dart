@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/screens/home_screen.dart';
 import 'package:whatsapp/presentation/view/screens/nav_screen.dart';
 
@@ -31,5 +32,9 @@ var router = GoRouter(routes: [
     ]),
   ], builder: (context, state, shell){
     return NavScreen(statefulNavigationShell: shell,);
-  })
+  }),
+  GoRoute(
+      path: ChatScreen.path,
+      builder: (context, state) => ChatScreen(),
+    ),
 ], initialLocation: HomeScreen.path);
