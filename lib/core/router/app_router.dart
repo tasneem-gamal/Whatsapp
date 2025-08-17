@@ -8,7 +8,27 @@ var router = GoRouter(routes: [
       GoRoute(path: HomeScreen.path, builder: (context, state){
         return HomeScreen();
       })
-    ])
+    ]),
+    StatefulShellBranch(routes: [
+      GoRoute(path: HomeScreen.path, builder: (context, state){
+        return HomeScreen();
+      })
+    ]),
+    StatefulShellBranch(routes: [
+      GoRoute(path: HomeScreen.path, builder: (context, state){
+        return HomeScreen();
+      })
+    ]),
+    StatefulShellBranch(routes: [
+      GoRoute(path: HomeScreen.path, builder: (context, state){
+        return HomeScreen();
+      })
+    ]),
+    StatefulShellBranch(routes: [
+      GoRoute(path: HomeScreen.path, builder: (context, state){
+        return HomeScreen();
+      })
+    ]),
   ], builder: (context, state, shell){
     return NavScreen(statefulNavigationShell: shell,);
   })
