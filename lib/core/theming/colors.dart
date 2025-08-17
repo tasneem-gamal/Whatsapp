@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
 
-class ColorsManager{
-  static const Color mainColor = Color(0xff075E54);
-  static const Color tealGreenColor = Color(0xff128C7E);
-  static const Color chatBubbleSent = Color(0xffDCF8C6);
-  static const Color chatBubbleReceived = Color(0xffFFFFFF);  
-  static const Color backgroundColor = Color(0xffECE5DD);
-  static const Color actions = Color(0xff25D366);
-  static const Color divider = Color(0xffE0E0E0);
+class ColorsManager {
+  // ====== Common (used in both modes) ======
+  static const Color primaryGreen = Color(0xff075E54);
+  static const Color tealGreen = Color(0xff128C7E);
+  static const Color actionGreen = Color(0xff25D366);
+  static const Color divider = Color(0xffececec);
 
-  static const Color mainColorLight = Color.fromARGB(255, 177, 229, 179);
-  static const Color blueShade = Color.fromARGB(255, 21, 43, 244);
-  static const Color orangeShade = Color(0xfff7cd63);
-  static const Color pinkShade = Color(0xfffc8fc6);
-  static Color whiteShade = Colors.white.withAlpha(140);
+  // ====== Light Mode ======
+  static const Color lightBackground = Colors.white;
+  static const Color lightBackgroundShade = Color(0xFFf6f5f3);
+  static const Color lightChatBubbleSent = Color(0xffDCF8C6);
+  static const Color lightChatBubbleReceived = Color(0xffFFFFFF);
+  static const Color lightTextPrimary = Color(0xff212121);
+  static const Color lightTextSecondary = Color(0xff909090);
+
+  // ====== Dark Mode ======
+  static const Color darkBackground = Color(0xff121B22);
+  static const Color darkChatBubbleSent = Color(0xff005C4B);
+  static const Color darkChatBubbleReceived = Color(0xff1F2C34);
+  static const Color darkDivider = Color(0xff2C2C2C);
+  static const Color darkTextPrimary = Color(0xffEDEDED);
+  static const Color darkTextSecondary = Color(0xffB3B3B3);
+
+  // ====== Utility Shades======
   static const Color warningRed = Color(0xffB01E1E);
-  static const Color lightGray = Color(0xFF7D7D7D);
-  static const Color moreLightGray = Color(0xFFCACACA);
-  static const Color fieldGray = Color(0xFFEAE8E8);
-  static const Color grayShade = Color(0xffF6F6F6);
-  static const Color shimmerColorLoading = Color.fromARGB(255, 237, 237, 237);
+  static const Color shimmerLoading = Color(0xffEDEDED); 
 }

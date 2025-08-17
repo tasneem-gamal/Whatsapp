@@ -23,33 +23,41 @@ class _NavScreenState extends State<NavScreen> {
       body: widget.statefulNavigationShell,
       extendBody: true,
       bottomNavigationBar: Container(
-        color: Colors.black.withAlpha(100),
+        decoration: BoxDecoration(
+          color: ColorsManager.lightBackground,
+          border: Border(top: BorderSide(color: ColorsManager.divider))
+        ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.white,
-          unselectedItemColor: ColorsManager.whiteShade,
-          selectedLabelStyle: CustomTextStyles.font12WhiteMedium(context),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: ColorsManager.lightTextSecondary,
+          selectedLabelStyle: CustomTextStyles.tabSelected(context),
           elevation: 0,
           backgroundColor: Colors.transparent,
           items: [
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.camera_circle),
+              activeIcon: Icon(CupertinoIcons.camera_circle_fill),
               label: 'Updates'
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.phone),
+              activeIcon: Icon(CupertinoIcons.phone_fill),
               label: 'Call'
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.group),
+              activeIcon: Icon(CupertinoIcons.group_solid),
               label: 'Communities'
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.chat_bubble_2),
+              activeIcon: Icon(CupertinoIcons.chat_bubble_2_fill),
               label: 'Chats'
             ),
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.settings),
+              activeIcon: Icon(CupertinoIcons.settings_solid),
               label: 'Settings'
             ),
           ],

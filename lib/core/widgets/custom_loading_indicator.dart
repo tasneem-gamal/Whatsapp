@@ -9,7 +9,7 @@ class CustomLoadingIndicator extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Center(
       child: CircularProgressIndicator(
-        color: ColorsManager.mainColor,
+        color: ColorsManager.primaryGreen,
       ),
     );
   }
