@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp/core/theming/colors.dart';
 import 'package:whatsapp/core/theming/styles.dart';
 import 'package:whatsapp/core/utils/spacing.dart';
 import 'package:whatsapp/core/widgets/custom_divider.dart';
@@ -9,15 +10,16 @@ class ChatItem extends StatelessWidget {
     required this.image,
     required this.chatTitle,
     required this.chatSubtitle,
-    required this.time, required this.onTap,
+    required this.time,
+    required this.onTap,
   });
 
   final String image, chatTitle, chatSubtitle, time;
-  final Function() onTap;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: onTap,
       child: Column(
         children: [
@@ -28,15 +30,14 @@ class ChatItem extends StatelessWidget {
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundColor: Colors.grey[300],
+                  backgroundColor: ColorsManager.lightTextSecondary,
                   backgroundImage: image.isNotEmpty ? NetworkImage(image) : null,
-                  child:
-                    image.isEmpty
+                  child: image.isEmpty
                       ? const Icon(
-                        Icons.person,
-                        size: 30,
-                        color: Colors.white,
-                      )
+                          Icons.person,
+                          size: 30,
+                          color: Colors.white,
+                        )
                       : null,
                 ),
                 horizontalSpace(context, 12),
@@ -44,7 +45,10 @@ class ChatItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(chatTitle, style: CustomTextStyles.chatTitle(context)),
+                      Text(
+                        chatTitle,
+                        style: CustomTextStyles.chatTitle(context),
+                      ),
                       verticalSpace(context, 5),
                       Text(
                         chatSubtitle,
@@ -55,7 +59,10 @@ class ChatItem extends StatelessWidget {
                   ),
                 ),
                 horizontalSpace(context, 5),
-                Text(time, style: CustomTextStyles.messageTime(context)),
+                Text(
+                  time,
+                  style: CustomTextStyles.messageTime(context),
+                ),
               ],
             ),
           ),

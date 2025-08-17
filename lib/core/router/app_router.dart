@@ -35,6 +35,12 @@ var router = GoRouter(routes: [
   }),
   GoRoute(
       path: ChatScreen.path,
-      builder: (context, state) => ChatScreen(),
+      builder: (context, state) {
+        final data = state.extra as Map<String, dynamic>;
+        return ChatScreen(
+          name: data["name"] as String,
+          imageUrl: data["imageUrl"] as String,
+        );
+      },
     ),
 ], initialLocation: HomeScreen.path);

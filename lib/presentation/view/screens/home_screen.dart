@@ -23,32 +23,48 @@ class HomeScreen extends StatelessWidget {
         child: CustomScrollView(
           slivers: [
             HomeAppBar(),
-            SliverToBoxAdapter(child: verticalSpace(context, 16),),
+            SliverToBoxAdapter(child: verticalSpace(context, 16)),
             SeachField(),
             ChatFiltersList(),
-            SliverToBoxAdapter(child: verticalSpace(context, 16),),
-            SliverList(delegate: SliverChildListDelegate([
-              ArchivedTitle(),
-              CustomDivider(),
-              verticalSpace(context, 16),
-              ChatItem(
+            SliverToBoxAdapter(child: verticalSpace(context, 16)),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                ArchivedTitle(),
+                CustomDivider(),
+                verticalSpace(context, 16),
+                ChatItem(
                   image:
                       'https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
                   chatTitle: 'Ali',
                   chatSubtitle: 'How are you today?',
                   time: '05:00',
                   onTap: () {
-                    context.push(ChatScreen.path);
+                    context.push(
+                      ChatScreen.path,
+                      extra: {
+                        "name": "Ali",
+                        "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220",
+                      },
+                    );
                   },
                 ),
-              ChatItem(
-                image: '',
-                chatTitle: 'Sara',
-                chatSubtitle: 'Hi',
-                time: '03:00',
-                onTap: (){},
-              ),
-            ]))
+                ChatItem(
+                  image: '',
+                  chatTitle: 'Sara',
+                  chatSubtitle: 'Hi',
+                  time: '03:00',
+                  onTap: () {
+                    context.push(
+                      ChatScreen.path,
+                      extra: {
+                        "name": "Sara",
+                        "imageUrl": "", 
+                      },
+                    );
+                  },
+                ),
+              ]),
+            ),
           ],
         ),
       ),
