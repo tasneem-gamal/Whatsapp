@@ -2,13 +2,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:whatsapp/core/router/app_router.dart';
 
 class WhatsApp extends StatelessWidget {
   const WhatsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
         debugShowCheckedModeBanner: false,
         builder:
             (context, child) => ResponsiveBreakpoints.builder(
@@ -24,7 +25,7 @@ class WhatsApp extends StatelessWidget {
           textTheme: GoogleFonts.robotoTextTheme(),
         ),
         themeMode: ThemeMode.light,
-        //home: ,
+        routerConfig: router,
       );
   }
 }
