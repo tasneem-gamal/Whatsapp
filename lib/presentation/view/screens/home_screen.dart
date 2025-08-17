@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:whatsapp/core/theming/colors.dart';
 import 'package:whatsapp/core/utils/spacing.dart';
+import 'package:whatsapp/core/widgets/custom_divider.dart';
+import 'package:whatsapp/presentation/view/widgets/archived_title.dart';
+import 'package:whatsapp/presentation/view/widgets/chat_filters_list.dart';
+import 'package:whatsapp/presentation/view/widgets/chat_item.dart';
 import 'package:whatsapp/presentation/view/widgets/home_app_bar.dart';
 import 'package:whatsapp/presentation/view/widgets/search_field.dart';
 
@@ -19,12 +23,27 @@ class HomeScreen extends StatelessWidget {
             HomeAppBar(),
             SliverToBoxAdapter(child: verticalSpace(context, 16),),
             SeachField(),
+            ChatFiltersList(),
+            SliverToBoxAdapter(child: verticalSpace(context, 16),),
+            SliverList(delegate: SliverChildListDelegate([
+              ArchivedTitle(),
+              CustomDivider(),
+              verticalSpace(context, 16),
+              ChatItem(
+                image: 'https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
+                chatTitle: 'Ali',
+                chatSubtitle: 'How are you today?',
+                time: '05:00',
+              ),
+            ]))
           ],
         ),
       ),
     );
   }
 }
+
+
 
 
 

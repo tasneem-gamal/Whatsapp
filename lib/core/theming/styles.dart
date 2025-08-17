@@ -22,13 +22,26 @@ class CustomTextStyles {
       );
 
   // ==== Tabs (Chats, Updates, Calls) ====
+  static TextStyle headTitles(BuildContext context) => TextStyle(
+        fontSize: ResponsiveValue<double>(
+          context,
+          defaultValue: 18.0,
+          conditionalValues: [
+            const Condition.smallerThan(name: MOBILE, value: 16.0),
+            const Condition.largerThan(name: TABLET, value: 24.0),
+          ],
+        ).value,
+        fontWeight: FontWeightHelper.bold,
+        color: ColorsManager.lightTextPrimary,
+      );
+
   static TextStyle tabSelected(BuildContext context) => TextStyle(
         fontSize: ResponsiveValue<double>(
           context,
           defaultValue: 12.0,
           conditionalValues: [
-            const Condition.smallerThan(name: MOBILE, value: 12.0),
-            const Condition.largerThan(name: TABLET, value: 16.0),
+            const Condition.smallerThan(name: MOBILE, value: 10.0),
+            const Condition.largerThan(name: TABLET, value: 14.0),
           ],
         ).value,
         fontWeight: FontWeightHelper.bold,
@@ -47,12 +60,27 @@ class CustomTextStyles {
         fontWeight: FontWeightHelper.bold,
         color: Colors.grey,
       );
+    
+    static TextStyle largeHeadTitles(BuildContext context) => TextStyle(
+        fontSize: ResponsiveValue<double>(
+          context,
+          defaultValue: 32.0,
+          conditionalValues: [
+            const Condition.smallerThan(name: MOBILE, value: 24.0),
+            const Condition.largerThan(name: TABLET, value: 34.0),
+          ],
+        ).value,
+        fontWeight: FontWeightHelper.extraBold,
+        color: Theme.of(context).brightness == Brightness.dark
+            ? Colors.white
+            : Colors.black,
+      );
 
   // ==== Chat List ====
   static TextStyle chatTitle(BuildContext context) => TextStyle(
         fontSize: ResponsiveValue<double>(
           context,
-          defaultValue: 32.0,
+          defaultValue: 16.0,
           conditionalValues: [
             const Condition.smallerThan(name: MOBILE, value: 14.0),
             const Condition.largerThan(name: TABLET, value: 18.0),
@@ -74,7 +102,7 @@ class CustomTextStyles {
           ],
         ).value,
         fontWeight: FontWeightHelper.regular,
-        color: Colors.grey[600],
+        color: ColorsManager.lightTextPrimary,
       );
 
   static TextStyle chatTime(BuildContext context) => TextStyle(
@@ -87,7 +115,7 @@ class CustomTextStyles {
           ],
         ).value,
         fontWeight: FontWeightHelper.regular,
-        color: Colors.grey[500],
+        color: ColorsManager.lightBackgroundShade,
       );
 
   // ==== Conversation Messages ====
@@ -109,14 +137,14 @@ class CustomTextStyles {
   static TextStyle messageTime(BuildContext context) => TextStyle(
         fontSize: ResponsiveValue<double>(
           context,
-          defaultValue: 12.0,
+          defaultValue: 14.0,
           conditionalValues: [
-            const Condition.smallerThan(name: MOBILE, value: 10.0),
-            const Condition.largerThan(name: TABLET, value: 14.0),
+            const Condition.smallerThan(name: MOBILE, value: 12.0),
+            const Condition.largerThan(name: TABLET, value: 16.0),
           ],
         ).value,
         fontWeight: FontWeightHelper.regular,
-        color: Colors.grey[600],
+        color: ColorsManager.lightTextPrimary,
       );
 
   // ==== Status (Stories) ====
@@ -139,13 +167,13 @@ class CustomTextStyles {
   static TextStyle smallLabel(BuildContext context) => TextStyle(
         fontSize: ResponsiveValue<double>(
           context,
-          defaultValue: 12.0,
+          defaultValue: 14.0,
           conditionalValues: [
             const Condition.smallerThan(name: MOBILE, value: 10.0),
             const Condition.largerThan(name: TABLET, value: 14.0),
           ],
         ).value,
         fontWeight: FontWeightHelper.medium,
-        color: ColorsManager.primaryGreen,
+        color: ColorsManager.lightTextSecondary,
       );
 }

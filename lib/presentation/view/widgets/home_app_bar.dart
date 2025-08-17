@@ -40,7 +40,7 @@ class HomeAppBar extends StatelessWidget {
         padding: const EdgeInsets.only(top: 60, right: 24, left: 24),
         child: Text(
           'Chats',
-          style: CustomTextStyles.chatTitle(context),
+          style: CustomTextStyles.largeHeadTitles(context),
         ),
       ),
     );
