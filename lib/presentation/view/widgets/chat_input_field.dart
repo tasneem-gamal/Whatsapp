@@ -47,7 +47,7 @@ class ChatInputField extends StatelessWidget {
           GestureDetector(
             onTap: isWriting ? onSend : () {},
             child: CircleAvatar(
-              backgroundColor: ColorsManager.actionGreen,
+              backgroundColor: ColorsManager.primaryGreen,
               child: Icon(
                 isWriting ? Icons.send : Icons.mic,
                 color: Colors.white,

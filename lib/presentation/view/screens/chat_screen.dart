@@ -46,6 +46,35 @@ class _ChatScreenState extends State<ChatScreen> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _messages.addAll([
+      MessageModel(
+        id: "1",
+        senderId: "user1",
+        text: "Hey, how are you?",
+        time: DateTime.now().subtract(const Duration(minutes: 5)),
+        isMe: false,
+      ),
+      MessageModel(
+        id: "2",
+        senderId: "me",
+        text: "I'm good! How about you?",
+        time: DateTime.now().subtract(const Duration(minutes: 4)),
+        isMe: true,
+      ),
+      MessageModel(
+        id: "3",
+        senderId: "user1",
+        text: "All good! Working on the project.",
+        time: DateTime.now().subtract(const Duration(minutes: 2)),
+        isMe: false,
+      ),
+    ]);
+  }
+
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
@@ -65,14 +94,17 @@ class _ChatScreenState extends State<ChatScreen> {
           children: [
             Expanded(
               child: ListView.builder(
-                padding: const EdgeInsets.all(12),
+                padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
                 itemCount: _messages.length,
                 itemBuilder: (context, index) {
                   final msg = _messages[index];
-                  return MessageBubble(
-                    text: msg.text,
-                    time: TimeOfDay.fromDateTime(msg.time).format(context),
-                    isMe: msg.isMe,
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: MessageBubble(
+                      text: msg.text,
+                      time: TimeOfDay.fromDateTime(msg.time).format(context),
+                      isMe: msg.isMe,
+                    ),
                   );
                 },
               ),
