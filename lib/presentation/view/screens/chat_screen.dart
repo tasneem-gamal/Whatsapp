@@ -25,29 +25,32 @@ class ChatScreen extends StatefulWidget {
 
 class _ChatScreenState extends State<ChatScreen> {
   final TextEditingController _controller = TextEditingController();
+  final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   final List<MessageModel> _messages = [];
   bool _isWriting = false;
 
   void _sendMessage() {
     if (_controller.text.trim().isEmpty) return;
-    setState(() {
-      _messages.add(
-        MessageModel(
-          id: DateTime.now().millisecondsSinceEpoch.toString(),
-          senderId: "me", 
-          text: _controller.text.trim(),
-          time: DateTime.now(),
-          isMe: true,
-        ),
-      );
-      _controller.clear();
-      _isWriting = false;
-    });
+
+    final newMessage = MessageModel(
+      id: DateTime.now().millisecondsSinceEpoch.toString(),
+      senderId: "me",
+      text: _controller.text.trim(),
+      time: DateTime.now(),
+      isMe: true,
+    );
+
+    _messages.add(newMessage);
+    _listKey.currentState?.insertItem(_messages.length - 1);
+
+    _controller.clear();
+    setState(() => _isWriting = false);
   }
 
   @override
   void initState() {
     super.initState();
+
     _messages.addAll([
       MessageModel(
         id: "1",
@@ -63,16 +66,8 @@ class _ChatScreenState extends State<ChatScreen> {
         time: DateTime.now().subtract(const Duration(minutes: 4)),
         isMe: true,
       ),
-      MessageModel(
-        id: "3",
-        senderId: "user1",
-        text: "All good! Working on the project.",
-        time: DateTime.now().subtract(const Duration(minutes: 2)),
-        isMe: false,
-      ),
     ]);
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -93,17 +88,30 @@ class _ChatScreenState extends State<ChatScreen> {
         child: Column(
           children: [
             Expanded(
-              child: ListView.builder(
+              child: AnimatedList(
+                key: _listKey,
                 padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-                itemCount: _messages.length,
-                itemBuilder: (context, index) {
+                initialItemCount: _messages.length,
+                itemBuilder: (context, index, animation) {
                   final msg = _messages[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: MessageBubble(
-                      text: msg.text,
-                      time: TimeOfDay.fromDateTime(msg.time).format(context),
-                      isMe: msg.isMe,
+                  return SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0, 1),
+                      end: Offset.zero,
+                    ).animate(CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.easeOut,
+                    )),
+                    child: FadeTransition(
+                      opacity: animation,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: MessageBubble(
+                          text: msg.text,
+                          time: TimeOfDay.fromDateTime(msg.time).format(context),
+                          isMe: msg.isMe,
+                        ),
+                      ),
                     ),
                   );
                 },

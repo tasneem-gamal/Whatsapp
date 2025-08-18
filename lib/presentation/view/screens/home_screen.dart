@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorsManager.lightBackground,
+      backgroundColor:  Theme.of(context).scaffoldBackgroundColor,
       body: SafeArea(
         bottom: false,
         child: CustomScrollView(
