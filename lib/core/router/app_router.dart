@@ -2,12 +2,13 @@ import 'package:go_router/go_router.dart';
 import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/screens/home_screen.dart';
 import 'package:whatsapp/presentation/view/screens/nav_screen.dart';
+import 'package:whatsapp/presentation/view/screens/updates_screen.dart';
 
 var router = GoRouter(routes: [
   StatefulShellRoute.indexedStack(branches: [
     StatefulShellBranch(routes: [
-      GoRoute(path: HomeScreen.path, builder: (context, state){
-        return HomeScreen();
+      GoRoute(path: UpdatesScreen.path, builder: (context, state){
+        return UpdatesScreen();
       })
     ]),
     StatefulShellBranch(routes: [

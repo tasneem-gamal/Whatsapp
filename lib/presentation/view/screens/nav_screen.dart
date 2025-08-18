@@ -66,6 +66,7 @@ class _NavScreenState extends State<NavScreen> {
             setState(() {
               currentIndex = index ;
             });
+            widget.statefulNavigationShell.goBranch(index);
           },
         ),
       ),

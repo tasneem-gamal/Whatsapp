@@ -1,13 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:whatsapp/core/theming/colors.dart';
 import 'package:whatsapp/core/utils/spacing.dart';
 import 'package:whatsapp/core/widgets/custom_divider.dart';
+import 'package:whatsapp/core/widgets/custom_icon_button.dart';
 import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/widgets/archived_title.dart';
 import 'package:whatsapp/presentation/view/widgets/chat_filters_list.dart';
 import 'package:whatsapp/presentation/view/widgets/chat_item.dart';
-import 'package:whatsapp/presentation/view/widgets/home_app_bar.dart';
+import 'package:whatsapp/presentation/view/widgets/custom_sliver_app_bar.dart';
 import 'package:whatsapp/presentation/view/widgets/search_field.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -22,7 +24,18 @@ class HomeScreen extends StatelessWidget {
         bottom: false,
         child: CustomScrollView(
           slivers: [
-            HomeAppBar(),
+            CustomSliverAppBar(
+              title: 'Chats',
+              actions: [
+                CustomIconButton(onPressed: () {}, icon: CupertinoIcons.camera),
+                CustomIconButton(
+                  onPressed: () {},
+                  icon: CupertinoIcons.add,
+                  backgroundColor: ColorsManager.primaryGreen,
+                  iconColor: Colors.white,
+                ),
+              ],
+            ),
             SliverToBoxAdapter(child: verticalSpace(context, 16)),
             SeachField(),
             ChatFiltersList(),
