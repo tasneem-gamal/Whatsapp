@@ -6,7 +6,7 @@ import 'package:whatsapp/core/widgets/custom_divider.dart';
 import 'package:whatsapp/core/widgets/custom_text_form_field.dart';
 import 'package:whatsapp/presentation/view/screens/status_viewer_screen.dart';
 import 'package:whatsapp/presentation/view/widgets/status_tile.dart';
-import 'package:whatsapp/presentation/view/widgets/custom_sliver_app_bar.dart';
+import 'package:whatsapp/core/widgets/custom_sliver_app_bar.dart';
 import 'package:whatsapp/presentation/view/widgets/status_avatar.dart';
 
 class UpdatesScreen extends StatelessWidget {
