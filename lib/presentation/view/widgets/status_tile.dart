@@ -11,36 +11,40 @@ class StatusTile extends StatelessWidget {
     required this.subtitle,
     this.showDefaultTrailing = true,
     this.trailing,
+    this.onTap,
   });
 
   final Widget statusAvatar;
   final String title, subtitle;
   final bool showDefaultTrailing;
   final Widget? trailing;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      leading: statusAvatar,
-      title: Text(title, style: CustomTextStyles.blackHeadTitle(context)),
-      subtitle: Text(subtitle, overflow: TextOverflow.ellipsis),
-      trailing:
-          trailing ??
-          (showDefaultTrailing
-              ? Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CustomIconButton(
-                    icon: CupertinoIcons.camera,
-                    onPressed: () {},
-                  ),
-                  CustomIconButton(
-                    icon: CupertinoIcons.pencil,
-                    onPressed: () {},
-                  ),
-                ],
-              )
-              : null),
+    return InkWell(
+      onTap: onTap,
+      child: ListTile(
+        leading: statusAvatar,
+        title: Text(title, style: CustomTextStyles.blackHeadTitle(context)),
+        subtitle: Text(subtitle, overflow: TextOverflow.ellipsis),
+        trailing:
+            trailing ?? (showDefaultTrailing
+                ? Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CustomIconButton(
+                      icon: CupertinoIcons.camera,
+                      onPressed: () {},
+                    ),
+                    CustomIconButton(
+                      icon: CupertinoIcons.pencil,
+                      onPressed: () {},
+                    ),
+                  ],
+                )
+                : null),
+      ),
     );
   }
 }

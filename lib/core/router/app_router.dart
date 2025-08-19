@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/screens/home_screen.dart';
 import 'package:whatsapp/presentation/view/screens/nav_screen.dart';
+import 'package:whatsapp/presentation/view/screens/status_viewer_screen.dart';
 import 'package:whatsapp/presentation/view/screens/updates_screen.dart';
 
 var router = GoRouter(routes: [
@@ -56,5 +57,13 @@ var router = GoRouter(routes: [
         );
       },
     ),
+  
+  GoRoute(
+      path: StatusViewerScreen.path,
+      builder: (context, state) {
+        final stories = state.extra as List<String>;
+        return StatusViewerScreen(stories: stories);
+      },
+    )
 
 ], initialLocation: HomeScreen.path);

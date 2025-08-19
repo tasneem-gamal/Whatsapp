@@ -3,14 +3,16 @@ import 'package:whatsapp/core/theming/colors.dart';
 
 class CustomDivider extends StatelessWidget {
   const CustomDivider({
-    super.key,
+    super.key, this.indent,
   });
+
+  final double? indent;
 
   @override
   Widget build(BuildContext context) {
     return Divider(
       color: ColorsManager.divider,
-      indent: 70,
+      indent: indent ?? 70,
     );
   }
 }

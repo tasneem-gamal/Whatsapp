@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:whatsapp/core/theming/styles.dart' show CustomTextStyles;
 import 'package:whatsapp/core/utils/spacing.dart';
 import 'package:whatsapp/core/widgets/custom_divider.dart';
 import 'package:whatsapp/core/widgets/custom_text_form_field.dart';
+import 'package:whatsapp/presentation/view/screens/status_viewer_screen.dart';
 import 'package:whatsapp/presentation/view/widgets/status_tile.dart';
 import 'package:whatsapp/presentation/view/widgets/custom_sliver_app_bar.dart';
 import 'package:whatsapp/presentation/view/widgets/status_avatar.dart';
@@ -37,9 +39,7 @@ class UpdatesScreen extends StatelessWidget {
                   padding: EdgeInsetsDirectional.symmetric(horizontal: 24),
                   child: Text(
                     'Status',
-                    style: CustomTextStyles.largeHeadTitles(context).copyWith(
-                      fontSize: 24
-                    ),
+                    style: CustomTextStyles.largeHeadTitles(context).copyWith(fontSize: 24),
                   ),
                 ),
                 verticalSpace(context, 16),
@@ -67,6 +67,14 @@ class UpdatesScreen extends StatelessWidget {
                     imageUrl: 'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
                     storiesCount: 1,
                   ),
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      StatusViewerScreen.path,
+                      extra: [
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                      ],
+                    );
+                  },
                 ),
                 CustomDivider(),
                 StatusTile(
@@ -77,6 +85,17 @@ class UpdatesScreen extends StatelessWidget {
                     imageUrl: 'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
                     storiesCount: 4,
                   ),
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      StatusViewerScreen.path,
+                      extra: [
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                      ],
+                    );
+                  },
                 ),
                 CustomDivider(),
                 StatusTile(
@@ -87,6 +106,19 @@ class UpdatesScreen extends StatelessWidget {
                     imageUrl: 'https://tse4.mm.bing.net/th/id/OIP.AlIScK6urTegkZ178dAAGgHaHa?pid=Api&P=0&h=220',
                     storiesCount: 6,
                   ),
+                  onTap: () {
+                    GoRouter.of(context).push(
+                      StatusViewerScreen.path,
+                      extra: [
+                        'https://tse4.mm.bing.net/th/id/OIP.AlIScK6urTegkZ178dAAGgHaHa?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                        'https://tse4.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.AlIScK6urTegkZ178dAAGgHaHa?pid=Api&P=0&h=220',
+                        'https://tse4.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220',
+                        'https://tse3.mm.bing.net/th/id/OIP.WLRMJj8pT85iQg5Iy4B26QHaHa?pid=Api&P=0&h=220',
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
@@ -96,4 +128,3 @@ class UpdatesScreen extends StatelessWidget {
     );
   }
 }
-

@@ -21,7 +21,6 @@ class WhatsApp extends StatelessWidget {
         ],
         child: child!,
       ),
-
       theme: ThemeData(
         brightness: Brightness.light,
         colorSchemeSeed: ColorsManager.primaryGreen,
@@ -32,7 +31,6 @@ class WhatsApp extends StatelessWidget {
           foregroundColor: Colors.white,
         ),
       ),
-
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         colorSchemeSeed: ColorsManager.primaryGreen,
