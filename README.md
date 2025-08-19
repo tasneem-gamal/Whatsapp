@@ -72,3 +72,15 @@ To ensure a high-quality result, I:
 # Demo
 https://github.com/user-attachments/assets/c5b2623a-142a-4eae-a516-69d0bac780e2
 
+# Screenshots
+<img width="1179" height="2556" alt="IMG_4203" src="https://github.com/user-attachments/assets/d07f05ef-3d7b-4178-8006-4f0c6101afe4" />
+<img width="1179" height="2556" alt="IMG_4202" src="https://github.com/user-attachments/assets/b2fbd929-d0b3-44b0-b5c3-477686d367bc" />
+<img width="1179" height="2556" alt="IMG_4201" src="https://github.com/user-attachments/assets/aa33272f-33bb-4607-99b8-1635cf086eda" />
+<img width="1179" height="2556" alt="IMG_4200" src="https://github.com/user-attachments/assets/9e43c5b4-8a82-4547-a8a6-5216b6884938" />
+<img width="1179" height="2556" alt="IMG_4199" src="https://github.com/user-attachments/assets/1c81c2b8-39d9-4420-b96b-a03d737f9cb7" />
+<img width="1179" height="2556" alt="IMG_4198" src="https://github.com/user-attachments/assets/e0c9a0f8-1a47-4fd9-af19-a0e4d4016260" />
+
+
+https://github.com/user-attachments/assets/09618e2e-d051-4f08-9337-125a484d8775
+
+
