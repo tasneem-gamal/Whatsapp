@@ -16,11 +16,11 @@ This was important for keeping the layout adaptive while still maintaining pixel
 # 🏆 Ensuring Quality
 
 To ensure a high-quality result, I:
-- Followed Flutter best practices for UI composition and state management.
+- Followed Flutter best practices for UI composition.
 - Tested both light and dark themes to guarantee consistent visuals.
 - Used smooth animations and transitions to replicate a native experience.
 - Verified the design on different screen densities to confirm responsiveness.
-- 
+  
 # 🧩 System Design
 - **lib/**
   - **core/**
