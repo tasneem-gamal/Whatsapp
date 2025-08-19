@@ -7,7 +7,8 @@ class CustomIconButton extends StatelessWidget {
     required this.icon, 
     required this.onPressed, 
     this.backgroundColor, 
-    this.iconColor, this.iconSize,
+    this.iconColor, 
+    this.iconSize,
   });
 
   final IconData icon;
@@ -18,11 +19,15 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor = backgroundColor ?? (isDark ? Colors.transparent: ColorsManager.lightBackgroundShade);
+    final icColor = iconColor ?? (isDark ? Colors.white : Colors.black);
+
     return IconButton(
-      onPressed: (){}, 
-      icon: Icon(icon, color: iconColor, size: iconSize,),
+      onPressed: onPressed, 
+      icon: Icon(icon, color: icColor, size: iconSize,),
       style: IconButton.styleFrom(
-        backgroundColor: backgroundColor ?? ColorsManager.lightBackgroundShade,
+        backgroundColor: bgColor,
       ),
     );
   }

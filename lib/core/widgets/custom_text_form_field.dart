@@ -19,6 +19,7 @@ class CustomTextFormField extends StatelessWidget {
     this.onTap,
     this.onFieldSubmitted
   });
+  
   final Widget? suffixIcon;
   final Widget? prefixIcon;
   final bool? isObsecureText;
@@ -31,9 +32,17 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final int? maxLines;
   final bool readOnly;
+
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
+    final borderColor = isDark ? Colors.transparent : ColorsManager.lightBackgroundShade;
+    final fillColor = isDark ? ColorsManager.darkTextSecondary : ColorsManager.lightBackgroundShade;
+    final hintColor = isDark ? Colors.white70 : ColorsManager.lightTextSecondary;
+
     final int effectiveMaxLines = (isObsecureText == true) ? 1 : (maxLines ?? 1);
+
     return SizedBox(
       height: 40,
       child: TextFormField(
@@ -49,32 +58,28 @@ class CustomTextFormField extends StatelessWidget {
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color: ColorsManager.lightBackgroundShade)),
+              borderSide: BorderSide(color: borderColor)),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide:
-                  const BorderSide(color:ColorsManager.lightBackgroundShade)),
+              borderSide: BorderSide(color: borderColor)),
           focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(color: ColorsManager.lightBackgroundShade)),
+              borderSide: BorderSide(color: borderColor)),
           errorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: Colors.red)),
           focusedErrorBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: const BorderSide(color: Colors.red)),
-          fillColor: ColorsManager.lightBackgroundShade,
+          fillColor: fillColor,
           filled: true,
           hintText: hintText,
-          hintStyle: CustomTextStyles.messageText(context).copyWith(
-            color: ColorsManager.lightTextSecondary,
-          ),
+          hintStyle: CustomTextStyles.messageText(context).copyWith(color: hintColor),
           contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10), 
           prefixIcon: prefixIcon,
-          prefixIconColor: ColorsManager.lightTextSecondary,
+          prefixIconColor: hintColor,
           suffixIcon: suffixIcon,
-          suffixIconColor: ColorsManager.lightBackgroundShade,
+          suffixIconColor: borderColor,
         ),
       ),
     );

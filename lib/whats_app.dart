@@ -24,7 +24,7 @@ class WhatsApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         colorSchemeSeed: ColorsManager.primaryGreen,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: ColorsManager.lightBackground,
         textTheme: GoogleFonts.robotoTextTheme(),
         appBarTheme: AppBarTheme(
           backgroundColor: ColorsManager.primaryGreen,
@@ -34,7 +34,7 @@ class WhatsApp extends StatelessWidget {
       darkTheme: ThemeData(
         brightness: Brightness.dark,
         colorSchemeSeed: ColorsManager.primaryGreen,
-        scaffoldBackgroundColor: Colors.black,
+        scaffoldBackgroundColor: ColorsManager.darkBackground,
         textTheme: GoogleFonts.robotoTextTheme(ThemeData.dark().textTheme),
         appBarTheme: AppBarTheme(
           backgroundColor: Colors.black,

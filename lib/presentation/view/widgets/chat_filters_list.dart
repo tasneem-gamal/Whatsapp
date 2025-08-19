@@ -8,26 +8,30 @@ class ChatFiltersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     final categories = ["All", "Unread", "Favorites", "Groups"];
+
     return SliverToBoxAdapter(
       child: SizedBox(
         height: 50,
         child: ListView.separated(
           scrollDirection: Axis.horizontal,
-          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 8),
           itemCount: categories.length,
           separatorBuilder: (context, index) => horizontalSpace(context, 10),
           itemBuilder: (context, index) {
             return Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
-                color: ColorsManager.lightBackgroundShade,
+                color: isDark ? ColorsManager.darkTextSecondary : ColorsManager.lightBackgroundShade,
                 borderRadius: BorderRadius.circular(20),
               ),
               child: Center(
                 child: Text(
                   categories[index],
-                  style: CustomTextStyles.smallLabel(context),
+                  style: CustomTextStyles.smallLabel(context).copyWith(
+                    color: isDark ? Colors.white70 : ColorsManager.lightTextPrimary,
+                  ),
                 ),
               ),
             );

@@ -14,23 +14,26 @@ class NavScreen extends StatefulWidget {
 }
 
 class _NavScreenState extends State<NavScreen> {
-  
   int currentIndex = 3;
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+
     return Scaffold(
       body: widget.statefulNavigationShell,
       extendBody: true,
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: ColorsManager.lightBackground,
-          border: Border(top: BorderSide(color: ColorsManager.divider))
+          color: isDark ? ColorsManager.darkBackground : ColorsManager.lightBackground,
+          border: Border(top: BorderSide(
+            color: isDark ? ColorsManager.darkDivider : ColorsManager.divider
+          )),
         ),
         child: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: Colors.black,
-          unselectedItemColor: ColorsManager.lightTextSecondary,
+          selectedItemColor: isDark ? Colors.white : Colors.black,
+          unselectedItemColor: isDark ? Colors.white54 : ColorsManager.lightTextSecondary,
           selectedLabelStyle: CustomTextStyles.tabSelected(context),
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -46,11 +49,6 @@ class _NavScreenState extends State<NavScreen> {
               label: 'Call'
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.group),
-              activeIcon: Icon(CupertinoIcons.group_solid),
-              label: 'Communities'
-            ),
-            BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.chat_bubble_2),
               activeIcon: Icon(CupertinoIcons.chat_bubble_2_fill),
               label: 'Chats'
@@ -64,7 +62,7 @@ class _NavScreenState extends State<NavScreen> {
           currentIndex: currentIndex,
           onTap: (index){
             setState(() {
-              currentIndex = index ;
+              currentIndex = index;
             });
             widget.statefulNavigationShell.goBranch(index);
           },
