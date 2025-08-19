@@ -6,7 +6,21 @@ This Flutter application enables users to:
  - Get **rich microinteractions**: animated **chat open transition**, and smooth **send-message**
  - Benefit from **Flutter Responsive** utilities for consistent paddings, font sizes, and component scaling across devices.
 
+# ✨ Design Decisions
 
+When building this app, I focused on creating a real WhatsApp-like experience while keeping the code clean and reusable. 
+I relied on Flutter’s widget system to split the UI into well-structured components, which helped me maintain clarity and flexibility.
+I also integrated the flutter responsive package to make sure the app looks and feels right on different screen sizes without losing design quality. 
+This was important for keeping the layout adaptive while still maintaining pixel-perfect details.
+
+# 🏆 Ensuring Quality
+
+To ensure a high-quality result, I:
+- Followed Flutter best practices for UI composition and state management.
+- Tested both light and dark themes to guarantee consistent visuals.
+- Used smooth animations and transitions to replicate a native experience.
+- Verified the design on different screen densities to confirm responsiveness.
+- 
 # 🧩 System Design
 - **lib/**
   - **core/**
