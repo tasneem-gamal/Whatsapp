@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:whatsapp/presentation/view/screens/chat_screen.dart';
 import 'package:whatsapp/presentation/view/screens/home_screen.dart';
@@ -36,12 +37,24 @@ var router = GoRouter(routes: [
   }),
   GoRoute(
       path: ChatScreen.path,
-      builder: (context, state) {
-        final data = state.extra as Map<String, dynamic>;
-        return ChatScreen(
-          name: data["name"] as String,
-          imageUrl: data["imageUrl"] as String,
+      pageBuilder: (context, state) {
+        final extra = state.extra as Map<String, String>;
+        return CustomTransitionPage(
+          key: state.pageKey,
+          child: ChatScreen(name: extra["name"]!, imageUrl: extra["imageUrl"]!),
+          transitionsBuilder: (_, animation, __, child) {
+            return SlideTransition(
+              position: Tween<Offset>(
+                begin: const Offset(1, 0),
+                end: Offset.zero,
+              ).animate(
+                CurvedAnimation(parent: animation, curve: Curves.easeInOut),
+              ),
+              child: child,
+            );
+          },
         );
       },
     ),
+
 ], initialLocation: HomeScreen.path);

@@ -6,7 +6,6 @@ import 'package:whatsapp/presentation/view/widgets/chat_input_field.dart';
 import 'package:whatsapp/presentation/view/widgets/message_bubble.dart';
 
 
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({
     super.key,
@@ -41,7 +40,10 @@ class _ChatScreenState extends State<ChatScreen> {
     );
 
     _messages.add(newMessage);
-    _listKey.currentState?.insertItem(_messages.length - 1);
+    _listKey.currentState?.insertItem(
+      _messages.length - 1,
+      duration: const Duration(milliseconds: 300),
+    );
 
     _controller.clear();
     setState(() => _isWriting = false);
@@ -94,13 +96,11 @@ class _ChatScreenState extends State<ChatScreen> {
                 initialItemCount: _messages.length,
                 itemBuilder: (context, index, animation) {
                   final msg = _messages[index];
-                  return SlideTransition(
-                    position: Tween<Offset>(
-                      begin: const Offset(0, 1),
-                      end: Offset.zero,
-                    ).animate(CurvedAnimation(
+                  return ScaleTransition(
+                    scale: Tween<double>(begin: 0.8, end: 1)
+                        .animate(CurvedAnimation(
                       parent: animation,
-                      curve: Curves.easeOut,
+                      curve: Curves.easeOutBack,
                     )),
                     child: FadeTransition(
                       opacity: animation,

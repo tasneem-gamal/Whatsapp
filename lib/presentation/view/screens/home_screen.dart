@@ -54,9 +54,9 @@ class HomeScreen extends StatelessWidget {
                   onTap: () {
                     context.push(
                       ChatScreen.path,
-                      extra: {
-                        "name": "Ali",
-                        "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220",
+                      extra: 
+                      {"name": "Ali", 
+                      "imageUrl": 'https://tse1.mm.bing.net/th/id/OIP.GKAbRpYzDlJa139WC8xPtwHaIC?pid=Api&P=0&h=220'
                       },
                     );
                   },
